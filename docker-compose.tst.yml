@@ -1,0 +1,22 @@
+networks:
+  traefik:
+    external: true
+    name: traefik-net
+
+services:
+  app:
+    networks:
+      - traefik
+    container_name: academico-ushuaia-juntas
+    labels:
+      - "traefik.http.routers.app.entrypoints=websecure"
+      - "traefik.http.routers.app.tls=true"
+      - "traefik.enable=true"
+      - "traefik.http.routers.app.rule=Host(`vm-2.dev.adini.com.ar`)"
+  db:
+    ports:
+      - "9433:1433"
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
