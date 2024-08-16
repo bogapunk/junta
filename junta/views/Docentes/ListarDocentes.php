@@ -798,7 +798,7 @@ if ($page < $total_pages) {
     echo '<li><a href="?page=' . ($page + 1) . '">Siguiente &raquo;</a></li>';
 }
 echo '</ul>';
-g
+
 echo '</nav>';
 ?>
 
